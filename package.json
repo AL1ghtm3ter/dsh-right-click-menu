@@ -1,6 +1,6 @@
 {
-  "name": "dsh-file-context-menu",
-  "version": "0.2.0",
+  "name": "dsh-right-click-menu",
+  "version": "0.3.0",
   "description": "Codex-style right-click menu for the DSH web GUI: files, chat file paths, and hyperlinks.",
   "type": "module",
   "main": "lib/index.js",
@@ -22,7 +22,7 @@
     "icon.svg",
     "locale/*.json",
     "README.md",
-    "README.zh.md"
+    "README.en.md"
   ],
   "keywords": [
     "dsh",
@@ -35,11 +35,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AL1ghtm3ter/dsh-file-context-menu.git"
+    "url": "git+https://github.com/AL1ghtm3ter/dsh-right-click-menu.git"
   },
-  "homepage": "https://github.com/AL1ghtm3ter/dsh-file-context-menu#readme",
+  "homepage": "https://github.com/AL1ghtm3ter/dsh-right-click-menu#readme",
   "bugs": {
-    "url": "https://github.com/AL1ghtm3ter/dsh-file-context-menu/issues"
+    "url": "https://github.com/AL1ghtm3ter/dsh-right-click-menu/issues"
   },
   "license": "MIT",
   "dsh": {

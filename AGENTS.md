@@ -6,18 +6,21 @@ build step: the files in the repository are the files DSH loads.
 ## Install and verify
 
 ```
-plugin_manager  action: install_bundle  target: github:AL1ghtm3ter/dsh-file-context-menu
+plugin_manager  action: install_bundle  target: github:AL1ghtm3ter/dsh-right-click-menu
 ```
 
-Shell equivalent (DSH quit first): `dsh plugin --profile <profile> add github:AL1ghtm3ter/dsh-file-context-menu`.
+Shell equivalent (DSH quit first): `dsh plugin --profile <profile> add github:AL1ghtm3ter/dsh-right-click-menu`.
 
 Read the result's `application` field, not the logs: `applied` means live,
 `restart-required` means the Host half waits for the next application start.
 
-* Host half — `GET http://<host>/dsh-file-menu/ping` answers `401` (the connection fence)
-  rather than `404` (no such route).
+* Host half — use a route-backed row (复制文件内容 / 另存为…): those need
+  `/dsh-right-click-menu/*`. An anonymous probe of that path is answered by the connection
+  fence before routing, so its status alone is not a route test: `401` on a deployment that
+  fences per route, `403` (including for paths that do not exist) on one that gates the
+  whole server.
 * Browser half — `cordis_inspect_query` on the client `Slots` provider, `listSubTree`
-  `{"root": "shell.overlay"}`, lists an occupant `file-context-menu`.
+  `{"root": "shell.overlay"}`, lists an occupant `right-click-menu`.
 * Both halves are exercised by the user in the DSH web UI: right-click a file-tree row, a
   file path in a chat message, and a hyperlink.
 
@@ -69,15 +72,15 @@ Iterate with a path install so edits need no reinstall:
 
 1. Bump `version` in `package.json`.
 2. `npm pack --dry-run` — the tarball must contain exactly `lib/`, `cordis.patch.yml`,
-   `icon.svg`, `locale/*.json`, `README.md`, `README.zh.md`, `LICENSE`, `package.json`.
+   `icon.svg`, `locale/*.json`, `README.md`, `README.en.md`, `LICENSE`, `package.json`.
 3. Commit and push to `main`.
-4. Publish the GitHub release with the asset named **`dsh-file-context-menu.tgz`** (no
+4. Publish the GitHub release with the asset named **`dsh-right-click-menu.tgz`** (no
    version in the name): the community catalog entry points at
-   `releases/latest/download/dsh-file-context-menu.tgz`, so a version-free asset name keeps
+   `releases/latest/download/dsh-right-click-menu.tgz`, so a version-free asset name keeps
    that link valid across releases.
-   `gh release create vX.Y.Z <packed file> --repo AL1ghtm3ter/dsh-file-context-menu`
+   `gh release create vX.Y.Z <packed file> --repo AL1ghtm3ter/dsh-right-click-menu`
 5. `npm publish`, once logged in as the account that owns the name (optional for listing).
-6. The catalog entry (`data/plugins/AL1ghtm3ter__dsh-file-context-menu.yml` upstream) needs
+6. The catalog entry (`data/plugins/AL1ghtm3ter__dsh-right-click-menu.yml` upstream) needs
    no change on a release. When the description changes, edit that one file in a PR against
    `awesome-dsh-plugin/awesome-dsh-plugin` — never the generated READMEs.
 
