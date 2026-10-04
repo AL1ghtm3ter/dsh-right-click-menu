@@ -68,17 +68,26 @@ and absolute paths before touching the filesystem.
 
 ## Install
 
-Through the plugin manager:
+Pick whichever source suits you. In the Web UI all three are the same gesture:
+sidebar **Plugins → Add plugin**, paste the spec, **Install**.
+
+| Source | Spec to paste |
+|---|---|
+| npm | `dsh-file-context-menu` |
+| GitHub | `github:AL1ghtm3ter/dsh-file-context-menu` |
+| A local checkout | the absolute path of this directory |
+
+From this agent, the equivalent call is:
 
 ```
-plugin_manager  action: install_bundle  target: <absolute path to this directory>
+plugin_manager  action: install_bundle  target: <spec from the table>
 ```
 
 which runs the profile's own pnpm and appends the package to `dsh.profile.bundles`.
 The equivalent CLI, with DSH fully quit first:
 
 ```
-dsh plugin --profile desktop add link:D:\Agent任务\DSH任务\dsh-file-context-menu
+dsh plugin --profile desktop add <spec from the table>
 ```
 
 Verify afterwards:
@@ -87,6 +96,10 @@ Verify afterwards:
   than `404` (no such route);
 * browser half — `cordis_inspect_query client Slots listSubTree { root: "shell.overlay" }`
   lists an occupant `file-context-menu`.
+
+Installed plugins do not update themselves: installing a newer version means
+uninstalling and installing again, and a package installed into the profile loads its
+Host half on the next application start.
 
 ## Uninstall / rollback
 
