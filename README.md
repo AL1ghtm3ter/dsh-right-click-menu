@@ -68,14 +68,16 @@ and absolute paths before touching the filesystem.
 
 ## Install
 
-Pick whichever source suits you. In the Web UI all three are the same gesture:
+Pick whichever source suits you. In the Web UI both are the same gesture:
 sidebar **Plugins → Add plugin**, paste the spec, **Install**.
 
 | Source | Spec to paste |
 |---|---|
-| npm | `dsh-file-context-menu` |
 | GitHub | `github:AL1ghtm3ter/dsh-file-context-menu` |
-| A local checkout | the absolute path of this directory |
+| A local checkout | the absolute path of this directory, or a packed `.tgz` |
+
+The npm name `dsh-file-context-menu` is reserved and its publication is prepared (see
+[Publishing](#publishing)), but the package is not on npm yet — use GitHub until it is.
 
 From this agent, the equivalent call is:
 
@@ -100,6 +102,23 @@ Verify afterwards:
 Installed plugins do not update themselves: installing a newer version means
 uninstalling and installing again, and a package installed into the profile loads its
 Host half on the next application start.
+
+## Publishing
+
+Everything except authentication is already done; `npm pack` is verified to contain
+exactly the nine published files.
+
+```powershell
+# 1. once, in your own terminal: log in to the account that owns the name
+npm login            # or: npm login --auth-type=legacy  (no browser)
+
+# 2. from this directory
+npm publish
+```
+
+Then anyone can install it by the bare name `dsh-file-context-menu`, and the README's
+npm row above can move to the top. GitHub needs no further step: pushing to `main`
+already publishes the `github:` spec.
 
 ## Uninstall / rollback
 
