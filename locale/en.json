@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "File context menu",
+    "description": "Codex-style right-click menu on file-tree rows and on file paths in chat: preview in DSH, open in the default app, open with, reveal in the file manager, copy path or contents, save as."
+  }
+}

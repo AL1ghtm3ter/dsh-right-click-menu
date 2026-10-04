@@ -1,0 +1,51 @@
+{
+  "name": "dsh-file-context-menu",
+  "version": "0.1.0",
+  "description": "Codex-style right-click file menu for the DSH web GUI: file-tree rows and file paths in chat.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "cordis",
+    "context-menu",
+    "file-menu"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AL1ghtm3ter/dsh-file-context-menu.git"
+  },
+  "homepage": "https://github.com/AL1ghtm3ter/dsh-file-context-menu#readme",
+  "bugs": {
+    "url": "https://github.com/AL1ghtm3ter/dsh-file-context-menu/issues"
+  },
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# Dependencies and build output are never committed.
+node_modules/
+*.tgz
+dist/
+
+# Editor and OS noise.
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
