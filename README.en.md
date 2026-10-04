@@ -137,6 +137,17 @@ rows when they name a file.
 
 ---
 
+## Languages
+
+The menu and the toasts follow **the DSH interface language** (Settings → General →
+Language; it takes effect immediately, with no reload). Chinese shows Chinese; every other
+language shows English — including one whose language pack has not translated this plugin
+yet. A raw key such as `menu.copyPath` never appears.
+
+To translate it into your language (or to write a language pack), the namespace is
+`right-click-menu`: the registration snippet and the complete **44-key table** are in
+[LOCALIZATION.md](LOCALIZATION.md).
+
 ## How it works
 
 ```

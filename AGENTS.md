@@ -72,7 +72,8 @@ Iterate with a path install so edits need no reinstall:
 
 1. Bump `version` in `package.json`.
 2. `npm pack --dry-run` — the tarball must contain exactly `lib/`, `cordis.patch.yml`,
-   `icon.svg`, `locale/*.json`, `README.md`, `README.en.md`, `LICENSE`, `package.json`.
+   `icon.svg`, `locale/*.json`, `README.md`, `README.en.md`, `LOCALIZATION.md`, `LICENSE`,
+   `package.json`.
 3. Commit and push to `main`.
 4. Publish the GitHub release with the asset named **`dsh-right-click-menu.tgz`** (no
    version in the name): the community catalog entry points at

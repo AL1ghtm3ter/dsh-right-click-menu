@@ -22,7 +22,8 @@
     "icon.svg",
     "locale/*.json",
     "README.md",
-    "README.en.md"
+    "README.en.md",
+    "LOCALIZATION.md"
   ],
   "keywords": [
     "dsh",
